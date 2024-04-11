@@ -44,7 +44,7 @@ with ui.layout_columns():
     with ui.card():
         ui.card_header("Summary")
         with ui.layout_columns():
-            with ui.value_box(showcase=icon_svg("dollar-sign"), style=f"padding: 10px; background-color: {theme_color};"):
+            with ui.value_box(showcase=icon_svg("hashtag"), style=f"padding: 10px; background-color: {theme_color};"):
                 "Number of Transactions"
                 @render.text
                 def transaction_count():
