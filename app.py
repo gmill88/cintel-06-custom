@@ -38,7 +38,7 @@ with ui.sidebar(title="Tips Dashboard"):
 
 
 
-theme_color = "#20c997"  # Teal theme color
+theme_color = "#20c997"  # Blue theme color
 
 with ui.layout_columns():
     with ui.card():
@@ -63,8 +63,8 @@ with ui.layout_columns():
                     average_tip_percent = (filtered_df['tip'] / filtered_df['total_bill']).mean() * 100
                     return f"{average_tip_percent:.2f}%"
                     
-with ui.accordion(style="background-color: #20c997;"):  
-    with ui.accordion_panel("Tips Data Grid", style="background-color: #20c997;"):  
+with ui.accordion(style="background-color: #20c997;"):  # Using green theme color for the accordion panel
+    with ui.accordion_panel("Tips Data Grid", style="background-color: #20c997;"):  # Applying the same theme color to the panel
         with ui.card(full_screen=True):
             ui.card_header("Tips Data Grid")
 
@@ -74,21 +74,24 @@ with ui.accordion(style="background-color: #20c997;"):
 
 
 with ui.layout_columns():
-    with ui.card(full_screen=True, style="background-color: #20c997;"):  # Using teal theme color
+    with ui.card(full_screen=True, style="background-color: #20c997;"): 
         ui.card_header("Tip vs. Sex")
 
         @render.plot()
         def tip_sex():
+            filtered_df = filtered_data()
+            filtered_df['tip_percent'] = (filtered_df['tip'] / filtered_df['total_bill']) * 100  # Calculate tip percent
             return sns.violinplot(
-                data=filtered_data(),
-                y="tip",
+                data=filtered_df,
+                y="tip_percent",  # Use tip percent as y-axis
                 x="sex",
                 hue="smoker",
                 split=True,
                 inner="quartile",
             )
+        
 
-    with ui.card(full_screen=True, style="background-color: #20c997;"):  # Using teal theme color
+    with ui.card(full_screen=True, style="background-color: #20c997;"): 
         ui.card_header("Total Bill vs. Tip")
 
         @render.plot()
@@ -117,11 +120,12 @@ with ui.layout_columns():
             (tips_df['smoker'].isin(smoker_filter))
         ]    
         return filtered_df
-            
+        
     @reactive.effect()
     def _():
         if input.dark_mode() == "Yes":
             ui.update_dark_mode("dark")
         else:
             ui.update_dark_mode("light")
+
 
