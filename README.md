@@ -30,6 +30,8 @@ The app contains a data grid that can be sorted. It is also on an accordion pane
 ### Violin Plot
 The violin plot evaluates the tip percent between male and female payors, while also evaluating the tip percentage between smokers and non-smokers from the given sex. The violin plot contains quartiles every 25% to evaluate differences in median tips between the groups. 
 
+### Scatter Plot
+The Scatter Plot compares the total bill to the tip amount, and contains a guideline that shows what a 10% tip would be at each transaction dollar amount. This allows users to easily identify outliers in the data, as well as better identify the trend of the data. 
 
 
 
