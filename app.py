@@ -75,7 +75,7 @@ with ui.accordion(style="background-color: #20c997;"):
 
 with ui.layout_columns():
     with ui.card(full_screen=True, style="background-color: #20c997;"): 
-        ui.card_header("Tip vs. Sex")
+        ui.card_header("Tip Percentage Based on Sex")
 
         @render.plot()
         def tip_sex():
