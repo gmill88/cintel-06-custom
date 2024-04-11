@@ -55,7 +55,7 @@ with ui.layout_columns():
                 def avg_tip():
                     return f"${filtered_data()['tip'].mean():.1f}"
 
-            with ui.value_box(showcase=icon_svg("dollar-sign"), style=f"padding: 10px; background-color: {theme_color};"):
+            with ui.value_box(showcase=icon_svg("percent"), style=f"padding: 10px; background-color: {theme_color};"):
                 "Average Tip Percent"
                 @render.text
                 def avg_tip_percent():
