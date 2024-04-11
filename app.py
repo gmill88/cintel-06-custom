@@ -117,6 +117,7 @@ with ui.layout_columns():
             (tips_df['smoker'].isin(smoker_filter))
         ]    
         return filtered_df
+            
     @reactive.effect()
     def _():
         if input.dark_mode() == "Yes":
